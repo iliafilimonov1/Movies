@@ -1,0 +1,23 @@
+.movies-info {
+  margin-top: 36px;
+}
+
+.movies-info__link {
+  background: transparent;
+  border: 2px solid #7B6EF6;
+  border-radius: 12px;
+  color: #7B6EF6;
+  padding: 12px 24px;
+  display: inline-flex;
+}
+
+.movies-info__link:hover,
+.movies-info__link:focus {
+  background-color: #7B6EF6;
+  color: #fff;
+}
+
+
+.movies-details {
+  margin-top: 36px;
+}
