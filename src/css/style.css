@@ -1,8 +1,8 @@
 @import "../css/normalize.css";
 @import "../lib/swiper.css";
-@import "../css/font-awesome.css";
 @import "../css/search.css";
 @import "../css/tabs.css";
+@import "../css/radio.css";
 @import "../css/shows.css";
 @import "../css/movie-details.css";
 
@@ -42,14 +42,19 @@ a {
 
 /* header */
 header {
+  
+
+  background-color: #121829;
+  padding: 16px 0;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  max-height: 100px;
+  box-sizing: border-box;
   position: fixed;
-  z-index: 2;
+  top: 0;
   left: 0;
   right: 0;
   width: 100%;
-  background: #121829;
-  padding: 20px 0;
-  border-bottom: 1px solid #A8AEBF;
+  z-index: 2;
 }
 
 .header-nav {
@@ -74,6 +79,27 @@ header nav a svg {
   background-size: cover;
 }
 
+.title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  letter-spacing: -0.8px;
+  color: #ffffff;
+  margin-bottom: 46px;
+  position: relative;
+}
+
+.title::after {
+  content: "";
+  width: 100px;
+  height: 2px;
+  display: inline-block;
+  background-color: #7B6EF6;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+}
+
 /* swiper */
 .swiper-button-next,
 .swiper-button-prev {
@@ -85,7 +111,7 @@ header nav a svg {
 }
 
 .now-playing {
-  padding: 80px 0;
+  padding: 24px 0;
 }
 
 .slide-link {
@@ -243,11 +269,3 @@ header nav a svg {
   font-weight: 400;
   padding: 20px;
 }
-
-
-
-
-
-
-
-

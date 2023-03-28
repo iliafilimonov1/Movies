@@ -65,22 +65,6 @@
   min-height: 399px;
 }
 
-.content__title {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 32px;
-  letter-spacing: -0.015em;
-  color: #EBEEF5;
-  margin-bottom: 24px;
-}
-
-.content__descr {
-  margin-bottom: 59px;
-  font-weight: 400;
-  font-size: 14px;
-  color: var(--color-dark);
-}
-
 .content__list {
   margin: 0;
   padding: 0;
