@@ -156,7 +156,7 @@ async function displayPopularMovies() {
 
   results.forEach(movie => {
     const div = document.createElement('div');
-    div.classList.add('movie');
+    div.classList.add('card');
     div.innerHTML = `
       <a class="list-item-link" href="movie-details.html?id=${movie.id}">
       ${movie.poster_path
@@ -190,9 +190,9 @@ async function displayPopularShows() {
 
   results.forEach(tv => {
     const div = document.createElement('div');
-    div.classList.add('tv');
+    div.classList.add('card');
     div.innerHTML = `
-    <a class="list-item-link" href="movie-details.html?id=${movie.id}">
+    <a class="list-item-link" href="movie-details.html?id=${tv.id}">
       ${tv.poster_path
         ?
         `<img src="https://www.themoviedb.org/t/p/w300${tv.poster_path}" alt="${tv.title}" />`
@@ -212,8 +212,6 @@ async function displayPopularShows() {
     document.querySelector('.popular-tv').appendChild(div);
   })
 }
-
-
 
 
 async function displayMovieDetails() {
@@ -239,9 +237,6 @@ async function displayMovieDetails() {
 }
 
 
-
-
-
 /* button-group */
 const buttons = document.querySelectorAll('.button');
 
@@ -254,6 +249,29 @@ buttons.forEach(button => {
   })
 })
 
+/* tabs-content */
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelector('.tabs');
+  const tabsBtn = document.querySelectorAll('.tabs__btn');
+  const tabsContent = document.querySelectorAll('.tabs__content');
+
+  if(tabs) {
+    tabs.addEventListener('click', (e) => {
+      if(e.target.classList.contains('tabs__btn')) {
+        const tabsPath = e.target.dataset.tabsPath;
+        tabsBtn.forEach(el => el.classList.remove('tabs__btn--active'));
+        document.querySelector(`[data-tabs-path="${tabsPath}"]`).classList.add('tabs__btn--active');
+        tabsHandler(tabsPath);
+      }
+    })
+  }
+
+  const tabsHandler = path => {
+    tabsContent.forEach(el => el.classList.remove('tabs__content--active'));
+    document.querySelector(`[data-tabs-target="${path}"]`).classList.add('tabs__content--active');
+  }
+
+})
 
 /* spinner */
 function showSpinner() {
@@ -272,6 +290,7 @@ function init() {
     case '/index.html':
       displaySlider();
       displayPopularMovies();
+      displayPopularShows();
       break;
     case '/movies.html':
       displayPopularMovies();
