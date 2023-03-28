@@ -1,0 +1,107 @@
+/* tabs */
+:root {
+  --color-dark: #4d4d4d;
+  --color-light: #808080;
+  --color-accent: #5d71dd;
+}
+
+.tabs {
+  position: relative;
+}
+
+.tabs__list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(40px);
+  padding: 8px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.tabs__btn {
+  background-color: transparent;
+  padding: 10px 17px 10px 17px;
+  color: #8E95A9;
+  cursor: pointer;
+  border: 0;
+}
+
+.tabs__btn--active {
+  background: #7B6EF6;
+  border-radius: 8px;
+  color: #fff;
+  pointer-events: none;
+}
+
+.tabs__content {
+  display: none;
+}
+
+.tabs__content--active {
+  display: block;
+}
+
+.popular-movies,
+.popular-shows {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  width: 282px;
+  background: rgba(32, 40, 62, 0.8);
+  border-radius: 12px;
+  margin-bottom: 26px;
+  padding: 8px;
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: 12px;
+  min-height: 399px;
+}
+
+.content__title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.015em;
+  color: #EBEEF5;
+  margin-bottom: 24px;
+}
+
+.content__descr {
+  margin-bottom: 59px;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--color-dark);
+}
+
+.content__list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content__link {
+  padding: 14px;
+  width: 200px;
+  height: 120px;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #ebecf3;
+}
+
+.content__text {
+  font-weight: 500;
+  font-size: 14px;
+  color: #a2a6c0;
+}

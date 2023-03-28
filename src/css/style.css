@@ -1,5 +1,8 @@
+@import "../css/normalize.css";
+@import "../lib/swiper.css";
+@import "../css/font-awesome.css";
 @import "../css/search.css";
-@import "./movies.css";
+@import "../css/tabs.css";
 @import "../css/shows.css";
 @import "../css/movie-details.css";
 
@@ -246,102 +249,5 @@ header nav a svg {
 
 
 
-
-/* tabs */
-:root {
-  --color-dark: #4d4d4d;
-  --color-light: #808080;
-  --color-accent: #5d71dd;
-}
-
-.tabs {
-  position: relative;
-}
-
-.tabs__list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-}
-
-.tabs__btn {
-  padding: 15px 62px;
-  border: none;
-  background-color: var(--color-accent);
-  color: #fff;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 12px;
-}
-
-.tabs__btn:hover {
-  background-color: #fff;
-  color: var(--color-accent);
-}
-
-.tabs__btn--active {
-  background-color: tomato;
-  pointer-events: none;
-}
-
-.tabs__content {
-  display: none;
-  background-color: #fff;
-}
-
-.tabs__content--active {
-  display: block;
-}
-
-.content {
-  padding: 40px 60px;
-  width: 796px;
-}
-
-.content__title {
-  
-  margin-bottom: 20px;
-  
-  font-weight: 700;
-  font-size: 24px;
-  
-  color: var(--color-dark);
-}
-
-.content__descr {
-  
-  margin-bottom: 59px;
-  font-weight: 400;
-  font-size: 14px;
-  
-  color: var(--color-dark);
-}
-
-.content__list {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.content__link {
-  padding: 14px;
-  width: 200px;
-  height: 120px;
-  display: inline-block;
-  border-radius: 4px;
-  background-color: #ebecf3;
-}
-
-.content__text {
-  font-weight: 500;
-  font-size: 14px;
-  color: #a2a6c0;
-}
 
 
