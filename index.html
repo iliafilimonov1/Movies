@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preload" href="src/fonts/Lexend/Lexend-Light.ttf" as="style">
+  <link rel="preload" href="src/fonts/Lexend/Lexend-Medium.ttf" as="style">
+  <link rel="preload" href="src/fonts/Lexend/Lexend-SemiBold.ttf" as="style">
+  <link rel="stylesheet" href="src/css/normalize.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="stylesheet" href="src/lib/swiper.css">
+  <link rel="stylesheet" href="src/css/style.css">
+  <script src="src/lib/swiper.js"></script>
+  <script type="module" src="src/js/index.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="flex">
+        <a href="#">
+          <img src="src/img/header-logo.svg" alt="logo">
+        </a>
+        <nav class="header-nav flex">
+          <a class="header-nav__link" href="/movies.html">Movies</a>
+          <a class="header-nav__link" href="/shows.html">TV Shows</a>
+          <a class="header-nav__link" href="/movie-details.html">Movie Details</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="search">
+      <div class="container">
+        <h1 class="search-title">MaileHereko</h1>
+        <p class="search-subtitle">List of movies and TV Shows, I, <a class="search-link" target="_blank"
+            href="#">Pramod Poudel</a> have watched till date. <br> Explore
+          what I have watched and also feel free to make a suggestion.</p>
+
+        <form action="/search.html" class="search-form">
+          <div class="search-radio">
+            <input type="radio" id="movie" name="type" value="movie" checked />
+            <label for="movies">Movies</label>
+            <input type="radio" id="tv" name="type" value="tv" />
+            <label for="shows">TV Shows</label>
+          </div>
+          <div class="flex">
+            <input id="search-term" name="search-term" type="search" class="search-input" placeholder="Search">
+            <button type="submit" class="search-icon">
+              <img src="src/img/search.svg" alt="search">
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </section>
+
+    <!-- Search Results -->
+    <section id="search-results-wrapper" class="container">
+      <h2 id="search-results-heading"></h2>
+      <div id="search-results"></div>
+      <div id="pagination"></div>
+    </section>
+
+    <!-- Now Playing Section -->
+    <section class="now-playing">
+      <div class="container">
+        <h2>Now Playing</h2>
+        <div class="swiper">
+          <div class="swiper-wrapper"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="multiple">
+      <div class="container">
+        <div class="tabs">
+          <ul class="tabs__list">
+            <li class="tabs__item">
+              <button class="tabs__btn tabs__btn--active" data-tabs-path="main">Главная</button>
+            </li>
+            <li class="tabs__item">
+              <button class="tabs__btn" data-tabs-path="archive">Архив</button></li>
+            <li class="tabs__item">
+              <button class="tabs__btn" data-tabs-path="settings">Настройки</button></li>
+          </ul>
+
+          <div class="tabs__content tabs__content--active" data-tabs-target="main">
+            <div class="content">
+              <h2 class="content__title">1</h2>
+              <p class="content__descr">Описание 1</p>
+              <ul class="content__list">
+                <li class="content__item">1</li>
+                <li class="content__item">1</li>
+                <li class="content__item">1</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tabs__content" data-tabs-target="archive">
+            <div class="content">
+              <h2 class="content__title">2</h2>
+              <p class="content__descr">Описание 2</p>
+              <ul class="content__list">
+                <li class="content__item">2</li>
+                <li class="content__item">2</li>
+                <li class="content__item">2</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tabs__content" data-tabs-target="settings">
+            <div class="content">
+              <h2 class="content__title">3</h2>
+              <p class="content__descr">Описание 3</p>
+              <ul class="content__list">
+                <li class="content__item">3</li>
+                <li class="content__item">3</li>
+                <li class="content__item">3</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="movies-list">
+      <div class="container">
+        <div class="multi-button">
+          <button class="button active">Movies</button>
+          <button class="button">TV Shows</button>
+        </div>
+        <h2 class="movies-title">Movies</h2>
+        <div class="popular-movies">
+          <!-- render popular movies  -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="spinner"></div>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">Films</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
