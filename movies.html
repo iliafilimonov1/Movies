@@ -21,8 +21,8 @@
                     <img src="src/img/header-logo.svg" alt="logo">
                 </a>
                 <nav class="header-nav flex">
-                    <a class="header-nav__link" href="#">Movies</a>
-                    <a class="header-nav__link" href="#">TV Shows</a>
+                    <a class="nav-link active" href="#">Movies</a>
+                    <a class="nav-link" href="/shows.html">TV Shows</a>
                 </nav>
             </div>
         </div>
@@ -32,9 +32,21 @@
         <section class="search">
             <div class="container">
                 <h1 class="title">Movies</h1>
-                <form action="#" class="search-form">
-                    <button type="submit" class="search-icon"></button>
-                    <input type="search" class="search-input" placeholder="Search Movies or TV Shows">
+                <form action="/search.html" class="search-form">
+                    <div class="search-radio">
+                        <input type="radio" id="movie" name="type" value="movie" checked>
+                        <label for="movie">Movies</label>
+                        <input type="radio" id="tv" name="type" value="tv">
+                        <label for="tv">TV Shows</label>
+                    </div>
+
+                    <div class="flex">
+                        <input id="search-term" name="search-term" type="search" class="search-input"
+                            placeholder="Search">
+                        <button type="submit" class="search-icon">
+                            <img src="src/img/search.svg" alt="search">
+                        </button>
+                    </div>
                 </form>
             </div>
         </section>
