@@ -105,6 +105,11 @@ header nav a svg {
   margin-left: 10px;
 }
 
+/* slider customization */
+.swiper-scrollbar-drag {
+  --swiper-scrollbar-drag-bg-color: #7B6EF6;
+}
+
 /* END header */
 
 .main {
