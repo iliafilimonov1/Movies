@@ -9,12 +9,7 @@
   <link rel="preload" href="src/fonts/Lexend/Lexend-Light.ttf" as="style">
   <link rel="preload" href="src/fonts/Lexend/Lexend-Medium.ttf" as="style">
   <link rel="preload" href="src/fonts/Lexend/Lexend-SemiBold.ttf" as="style">
-  <link rel="stylesheet" href="src/css/normalize.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-  <link rel="stylesheet" href="src/lib/swiper.css">
   <link rel="stylesheet" href="src/css/style.css">
-  <script src="src/lib/swiper.js"></script>
-  <script type="module" src="src/js/index.js" defer></script>
 </head>
 
 <body>
@@ -79,79 +74,51 @@
       </div>
     </section>
 
-    <section class="multiple">
+    <section class="movies-list">
       <div class="container">
         <div class="tabs">
           <ul class="tabs__list">
             <li class="tabs__item">
-              <button class="tabs__btn tabs__btn--active" data-tabs-path="main">Главная</button>
+              <button class="tabs__btn tabs__btn--active" data-tabs-path="movies">Movies</button>
             </li>
             <li class="tabs__item">
-              <button class="tabs__btn" data-tabs-path="archive">Архив</button></li>
-            <li class="tabs__item">
-              <button class="tabs__btn" data-tabs-path="settings">Настройки</button></li>
+              <button class="tabs__btn" data-tabs-path="shows">TV Shows</button>
+            </li>
           </ul>
 
-          <div class="tabs__content tabs__content--active" data-tabs-target="main">
+          <div class="tabs__content tabs__content--active" data-tabs-target="movies">
             <div class="content">
-              <h2 class="content__title">1</h2>
-              <p class="content__descr">Описание 1</p>
-              <ul class="content__list">
-                <li class="content__item">1</li>
-                <li class="content__item">1</li>
-                <li class="content__item">1</li>
-              </ul>
+              <h2 class="content__title">Movies</h2>
+              <p class="content__descr">Movies description</p>
+              <div class="popular-movies">
+                <!-- render popular movies  -->
+              </div>
             </div>
           </div>
-          <div class="tabs__content" data-tabs-target="archive">
+
+          <div class="tabs__content" data-tabs-target="shows">
             <div class="content">
-              <h2 class="content__title">2</h2>
-              <p class="content__descr">Описание 2</p>
-              <ul class="content__list">
-                <li class="content__item">2</li>
-                <li class="content__item">2</li>
-                <li class="content__item">2</li>
-              </ul>
-            </div>
-          </div>
-          <div class="tabs__content" data-tabs-target="settings">
-            <div class="content">
-              <h2 class="content__title">3</h2>
-              <p class="content__descr">Описание 3</p>
-              <ul class="content__list">
-                <li class="content__item">3</li>
-                <li class="content__item">3</li>
-                <li class="content__item">3</li>
-              </ul>
+              <h2 class="content__title">TV Shows</h2>
+              <p class="content__descr">TV Shows description</p>
+              <div class="popular-tv">
+                <!-- render popular movies  -->
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
     </section>
-
-    <section class="movies-list">
-      <div class="container">
-        <div class="multi-button">
-          <button class="button active">Movies</button>
-          <button class="button">TV Shows</button>
-        </div>
-        <h2 class="movies-title">Movies</h2>
-        <div class="popular-movies">
-          <!-- render popular movies  -->
-        </div>
-      </div>
-    </section>
-
   </main>
-
-  <div class="spinner"></div>
 
   <footer class="footer">
     <div class="container">
       <p class="footer-text">Films</p>
     </div>
   </footer>
+
+  <div class="spinner"></div>
+
+  <script src="src/lib/swiper.js"></script>
+  <script type="module" src="src/js/index.js" defer></script>
 
 </body>
 
