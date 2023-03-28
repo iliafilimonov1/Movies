@@ -126,7 +126,7 @@ function displaySearchResults(results) {
       </a>
       <div>asdada</div>
     `;
-    document.querySelector('.search-results').appendChild(div);
+    document.querySelector('#search-results').appendChild(div);
   })
 }
 
@@ -237,14 +237,12 @@ async function displayMovieDetails() {
 }
 
 
-/* button-group */
-const buttons = document.querySelectorAll('.button');
+/* links */
+const links = document.querySelectorAll('.nav-link');
 
-buttons.forEach(button => {
-  button.addEventListener('click', event => {
-    event.preventDefault();
-
-    document.querySelector('.button.active').classList.remove('active');
+links.forEach(link => {
+  link.addEventListener('click', event => {
+    document.querySelector('.nav-link.active').classList.remove('active');
     event.currentTarget.classList.add('active');
   })
 })
