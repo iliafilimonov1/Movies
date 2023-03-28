@@ -9,6 +9,7 @@
   <link rel="preload" href="src/fonts/Lexend/Lexend-Light.ttf" as="style">
   <link rel="preload" href="src/fonts/Lexend/Lexend-Medium.ttf" as="style">
   <link rel="preload" href="src/fonts/Lexend/Lexend-SemiBold.ttf" as="style">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
   <link rel="stylesheet" href="src/css/style.css">
 </head>
 
@@ -38,38 +39,37 @@
 
         <form action="/search.html" class="search-form">
           <div class="search-radio">
-            <input type="radio" id="movie" name="type" value="movie" checked />
-            <label for="movies">Movies</label>
-            <input type="radio" id="tv" name="type" value="tv" />
-            <label for="shows">TV Shows</label>
+            <input type="radio" id="movie" name="type" value="movie" checked>
+            <label for="movie">Movies</label>
+            <input type="radio" id="tv" name="type" value="tv">
+            <label for="tv">TV Shows</label>
           </div>
+
           <div class="flex">
             <input id="search-term" name="search-term" type="search" class="search-input" placeholder="Search">
             <button type="submit" class="search-icon">
               <img src="src/img/search.svg" alt="search">
             </button>
           </div>
-
         </form>
       </div>
     </section>
 
     <!-- Search Results -->
-    <section id="search-results-wrapper" class="container">
+    <!-- <section id="search-results-wrapper" class="container">
       <h2 id="search-results-heading"></h2>
       <div id="search-results"></div>
       <div id="pagination"></div>
-    </section>
+    </section> -->
 
     <!-- Now Playing Section -->
     <section class="now-playing">
       <div class="container">
-        <h2>Now Playing</h2>
+        <h2 class="title">Now Playing</h2>
         <div class="swiper">
           <div class="swiper-wrapper"></div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
-          <div class="swiper-pagination"></div>
         </div>
       </div>
     </section>
@@ -88,8 +88,7 @@
 
           <div class="tabs__content tabs__content--active" data-tabs-target="movies">
             <div class="content">
-              <h2 class="content__title">Movies</h2>
-              <p class="content__descr">Movies description</p>
+              <h2 class="title">Movies</h2>
               <div class="popular-movies">
                 <!-- render popular movies  -->
               </div>
@@ -98,8 +97,7 @@
 
           <div class="tabs__content" data-tabs-target="shows">
             <div class="content">
-              <h2 class="content__title">TV Shows</h2>
-              <p class="content__descr">TV Shows description</p>
+              <h2 class="title">TV Shows</h2>
               <div class="popular-tv">
                 <!-- render popular movies  -->
               </div>
