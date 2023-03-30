@@ -16,25 +16,30 @@ const global = {
 };
 
 // display slideer movies
-async function displaySlider() {
+async function nowPlayingMovies() {
   const { results } = await fetchAPIData('movie/now_playing');
+
+  console.log(results)
 
   results.forEach(movie => {
     const div = document.createElement('div');
     div.classList.add('now-playing');
 
     div.innerHTML = `
-      <a class="list-item-link" href="movie-details.html?id=${movie.id}">
+      <a class="slider-link href="movie-details.html?id=${movie.id}">
         <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}" />
-        <h3 class="list-item-rating">
+        <h3 class="slider-rating">
           <i class="fa-regular fa-star"></i>
-            ${tv.vote_average}
-          </h3>
-        <div class="list-item-descr">
-          <h3 class="list-item-title">${tv.name}</h3>
+            ${movie.vote_average}
+        </h3>
+        <div class="slider-wrapper">
+          <h3 class="slider-title">${movie.title}</h3>
+          <p class="slider-subtitle">
+            Release:
+            <small class="subtitle-muted">${movie.release_date}</small>
+          </p>
         </div>
       </a>
-      
     `;
 
     document.querySelector('.swiper-wrapper').appendChild(div);
@@ -53,6 +58,9 @@ function initSwiper() {
       el: '.swiper-scrollbar',
       draggable: true,
     },
+    autoplay: {
+      delay: 2000,
+    }
   });
 }
 /* END swiper */
@@ -284,7 +292,7 @@ function init() {
   switch (global.currentPage) {
     case '/':
     case '/index.html':
-      displaySlider();
+      nowPlayingMovies();
       displayPopularMovies();
       displayPopularShows();
       break;
