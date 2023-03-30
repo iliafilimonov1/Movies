@@ -95,11 +95,11 @@ async function search() {
   console.log(global.search.term);
 
   if (global.search.term !== "" && global.search.term !== null) {
-    const { results, page } = await searchAPIData();
+    const { results, page, total_pages, total_results } = await searchAPIData();
 
     global.search.page = page;
-
-    console.log(global.search.page)
+    global.search.totalPages = total_pages;
+    global.search.totalResults = total_results;
 
     if (results.length === 0) {
       console.error('No result');
@@ -117,6 +117,8 @@ async function search() {
 
 function displaySearchResults(results) {
   document.querySelector('#search-results').innerHTML = '';
+  document.querySelector('#search-results-heading').innerHTML = '';
+  document.querySelector('#pagination').innerHTML = '';
 
   results.forEach(result => {
     const div = document.createElement('div');
@@ -132,8 +134,15 @@ function displaySearchResults(results) {
       </a>
       <div>asdada</div>
     `;
+
+    document.querySelector('#search-results-heading').innerHTML = `
+        <h2>${results.length} of ${global.search.totalResults} Results for ${global.search.term}</h2>
+      `
+
     document.querySelector('#search-results').appendChild(div);
-  })
+  });
+
+  displayPagination();
 }
 
 
@@ -242,6 +251,44 @@ async function displayMovieDetails() {
   document.querySelector('#movie-details').appendChild(div);
 }
 
+
+function displayPagination() {
+  const div = document.createElement('div');
+  div.classList.add('pagination');
+  div.innerHTML = `
+    <button class="btn btn-primary" id="prev">Prev</button>
+    <button class="btn btn-primary" id="next">Next</button>
+    <div class="page-counter">Page ${global.search.page} of ${global.search.totalPages}</div>
+  `;
+
+  document.querySelector('#pagination').appendChild(div);
+
+  // disable prev button if on first page
+  if (global.search.page === 1) {
+    document.querySelector('#prev').disabled = true;
+  }
+
+  // disable next button if on last page
+  if (global.search.page === global.search.totalPages) {
+    document.querySelector('#next').disabled = true;
+  }
+
+  // step to next page
+  document.querySelector('#next').addEventListener('click', async () => {
+    global.search.page++;
+
+    const { results } = await searchAPIData();
+    displaySearchResults(results);
+  });
+
+  // step to prev page
+  document.querySelector('#prev').addEventListener('click', async () => {
+    global.search.page--;
+
+    const { results } = await searchAPIData();
+    displaySearchResults(results);
+  });
+}
 
 /* links */
 const links = document.querySelectorAll('.nav-link');
