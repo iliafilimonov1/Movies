@@ -21,15 +21,20 @@ async function displaySlider() {
 
   results.forEach(movie => {
     const div = document.createElement('div');
-    div.classList.add('swiper-slide');
+    div.classList.add('now-playing');
 
     div.innerHTML = `
-      <a href="movie-details.html?id=${movie.id}">
+      <a class="list-item-link" href="movie-details.html?id=${movie.id}">
         <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}" />
+        <h3 class="list-item-rating">
+          <i class="fa-regular fa-star"></i>
+            ${tv.vote_average}
+          </h3>
+        <div class="list-item-descr">
+          <h3 class="list-item-title">${tv.name}</h3>
+        </div>
       </a>
-      <h4 class="swiper-rating">
-        <i class="fas fa-star text-secondary"></i> ${movie.vote_average} / 10
-      </h4>
+      
     `;
 
     document.querySelector('.swiper-wrapper').appendChild(div);
@@ -43,17 +48,10 @@ async function displaySlider() {
 function initSwiper() {
   const swiper = new Swiper('.swiper', {
     slidesPerView: 4,
-    breakpoints: {
-      1200: {
-        slidesPerView: 4,
-      },
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-      el: ".swiper-pagination",
+    spaceBetween: 30,
+    scrollbar: {
+      el: '.swiper-scrollbar',
+      draggable: true,
     },
   });
 }
@@ -126,7 +124,7 @@ function displaySearchResults(results) {
       </a>
       <div>asdada</div>
     `;
-    document.querySelector('.search-results').appendChild(div);
+    document.querySelector('#search-results').appendChild(div);
   })
 }
 
@@ -237,14 +235,12 @@ async function displayMovieDetails() {
 }
 
 
-/* button-group */
-const buttons = document.querySelectorAll('.button');
+/* links */
+const links = document.querySelectorAll('.nav-link');
 
-buttons.forEach(button => {
-  button.addEventListener('click', event => {
-    event.preventDefault();
-
-    document.querySelector('.button.active').classList.remove('active');
+links.forEach(link => {
+  link.addEventListener('click', event => {
+    document.querySelector('.nav-link.active').classList.remove('active');
     event.currentTarget.classList.add('active');
   })
 })
@@ -255,9 +251,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const tabsBtn = document.querySelectorAll('.tabs__btn');
   const tabsContent = document.querySelectorAll('.tabs__content');
 
-  if(tabs) {
+  if (tabs) {
     tabs.addEventListener('click', (e) => {
-      if(e.target.classList.contains('tabs__btn')) {
+      if (e.target.classList.contains('tabs__btn')) {
         const tabsPath = e.target.dataset.tabsPath;
         tabsBtn.forEach(el => el.classList.remove('tabs__btn--active'));
         document.querySelector(`[data-tabs-path="${tabsPath}"]`).classList.add('tabs__btn--active');
