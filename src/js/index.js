@@ -23,7 +23,7 @@ async function nowPlayingMovies() {
 
   results.forEach(movie => {
     const div = document.createElement('div');
-    div.classList.add('swiper-slide');
+    div.classList.add('now-playing');
 
     div.innerHTML = `
       <a class="slider-link href="movie-details.html?id=${movie.id}">
