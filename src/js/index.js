@@ -26,7 +26,7 @@ async function nowPlayingMovies() {
     div.classList.add('swiper-slide');
 
     div.innerHTML = `
-      <a class="slider-link href="movie-details.html?id=${movie.id}">
+      <a class="slider-link" target="_blank" href="movie-details.html?id=${movie.id}">
         <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}" />
         <h3 class="slider-rating">
           <i class="fa-regular fa-star"></i>
@@ -59,11 +59,26 @@ function initSwiper() {
       draggable: true,
     },
     autoplay: {
-      delay: 2000,
+      delay: 3000,
     }
   });
 }
 /* END swiper */
+
+/* movie details swiper */
+function initMovieDetailsSlider() {
+  const swiper = new Swiper('.swiper', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+  });
+}
 
 // Make Request To Search
 async function searchAPIData() {
@@ -234,21 +249,70 @@ async function displayMovieDetails() {
 
   const movie = await fetchAPIData(`movie/${movieId}`);
 
-  console.log(movie)
-
   const div = document.createElement('div');
 
   div.innerHTML = `
     <div class="flex">
-      <a href="movie-details.html?id=${movie.id}">
-        <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}"/>
-      </a>
-      <h4 class="swiper-rating">
-        <i class="fas fa-star text-secondary"></i> ${movie.vote_average} / 10
-      </h4>
+      <div class="shop-card mr-9">
+      <!-- Slider main container and our classes -->
+      <div class="swiper card-image">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+          <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}"/>
+          </div>
+          <div class="swiper-slide">
+          <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}"/>
+          </div>
+          <div class="swiper-slide">
+          <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}"/>
+          </div>
+        </div>
+
+        <div class="card-wishlist">
+          <div class="wishlist-rating">
+            <div class="rating-img">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M16 6.12414H9.89333L8 0L6.10667 6.12414H0L4.93333 9.90345L3.06667 16L8 12.2207L12.9333 16L11.04 9.87586L16 6.12414Z"
+                  fill="#FFCE31" />
+              </svg>
+            </div>
+            <span class="rating-amount">4.9</span>
+          </div>
+
+          <svg class="whishlist-heart" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z">
+            </path>
+          </svg>
+        </div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <div class="shop-card__content">
+        <h3 class="card-title">Groveland, California</h3>
+
+        <p class="card-subtitle">Private Room & Balcony-Connected...</p>
+
+        <span class="price-prev">$344 night</span>
+        <span class="price-current">$289 night</span>
+
+        <a href="#" target="_blank" class="card-link">Learn more</a>
+      </div>
+    </div>
+    <h4 class="swiper-rating">
+      <i class="fas fa-star text-secondary"></i> ${movie.vote_average} / 10
+    </h4>
   `;
 
   document.querySelector('#movie-details').appendChild(div);
+
+  initMovieDetailsSlider();
 }
 
 

@@ -2,7 +2,6 @@
   font-family: 'Lexend';
   font-weight: 300;
   font-style: normal;
-  /* Браузер сначала попробует найти шрифт локально */
   src: local('Lexend-Light'), local('Lexend-Light'),
     url('../fonts/Lexend/Lexend-Light.ttf') format('truetype');
 }
@@ -11,7 +10,6 @@
   font-family: 'Lexend';
   font-weight: 500;
   font-style: normal;
-  /* Браузер сначала попробует найти шрифт локально */
   src: local('Lexend-Medium'), local('Lexend-Medium'),
     url('../fonts/Lexend/Lexend-Medium.ttf') format('truetype');
 }
@@ -20,7 +18,6 @@
   font-family: 'Lexend';
   font-weight: 600;
   font-style: normal;
-  /* Браузер сначала попробует найти шрифт локально */
   src: local('Lexend-SemiBold'), local('Lexend-SemiBold'),
     url('../fonts/Lexend/Lexend-SemiBold.ttf') format('truetype');
 }
