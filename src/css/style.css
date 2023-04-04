@@ -4,12 +4,14 @@
 @import "../css/tabs.css";
 @import "../css/radio.css";
 @import "../css/shows.css";
-@import "../css/movie-details.css";
+@import "../css/now-playing.css";
+@import "../css/details-card.css";
+@import "../css/colors.css";
 
 body {
   font-family: "Lexend", "Open-Sans", sans-serif;
   background-size: contain;
-  color: #ffffff;
+  color: var(--white);
 }
 
 h1,
@@ -21,7 +23,7 @@ p {
 
 a {
   text-decoration: none;
-  color: #A8AEBF;
+  color: var(--light-gray);
 }
 
 * {
@@ -40,6 +42,14 @@ a {
   align-items: center;
 }
 
+.theme {
+  cursor: pointer;
+  padding: 10px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(39,38,40,0.4);
+}
+
 .wrap {
   flex-wrap: wrap;
 }
@@ -48,7 +58,7 @@ a {
 header {
   background-color: #121829;
   padding: 16px 0;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 1px 2px var(--light-gray);
   max-height: 100px;
   box-sizing: border-box;
   position: fixed;
@@ -67,7 +77,7 @@ header {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #ffffff;
+  color: var(--white);
   position: relative;
 }
 
@@ -76,7 +86,7 @@ header {
   content: "";
   width: 100%;
   height: 1px;
-  background-color: #ffffff;
+  background-color: var(--white);
   position: absolute;
   left: 0;
   bottom: -8px;
@@ -87,7 +97,7 @@ header {
 }
 
 .active {
-  color: #7B6EF6;
+  color: var(--purple);
 }
 
 .active::after {
@@ -95,7 +105,7 @@ header {
   content: "";
   width: 100%;
   height: 1px;
-  background-color: #7B6EF6;
+  background-color: var(--purple);
   position: absolute;
   left: 0;
   bottom: -8px;
@@ -103,11 +113,6 @@ header {
 
 header nav a svg {
   margin-left: 10px;
-}
-
-/* slider customization */
-.swiper-scrollbar-drag {
-  --swiper-scrollbar-drag-bg-color: #7B6EF6;
 }
 
 /* END header */
@@ -124,7 +129,7 @@ header nav a svg {
   font-weight: 500;
   font-size: 30px;
   letter-spacing: -0.8px;
-  color: #ffffff;
+  color: var(--white);
   margin-bottom: 46px;
   position: relative;
 }
@@ -134,95 +139,11 @@ header nav a svg {
   width: 100px;
   height: 2px;
   display: inline-block;
-  background-color: #7B6EF6;
+  background-color: var(--purple);
   position: absolute;
   left: 0;
   bottom: -10px;
 }
-
-/* swiper */
-.swiper-button-next,
-.swiper-button-prev {
-  --swiper-navigation-color: #7b6ef6;
-}
-
-.swiper-pagination-bullet-active {
-  --swiper-pagination-color: #7b6ef6;
-}
-
-/* now-playing */
-.now-playing {
-  padding: 24px 0;
-}
-
-.slider-link {
-  display: flex;
-  flex-direction: column;
-  width: 282px;
-  background: rgba(32, 40, 62, 0.8);
-  border-radius: 12px;
-  margin-bottom: 26px;
-  padding: 8px;
-}
-
-.slider-link img {
-  max-width: 100%;
-  border-radius: 12px;
-  min-height: 399px;
-}
-
-.slider-rating {
-  position: absolute;
-  top: 24px;
-  left: 24px;
-  padding: 8px;
-  min-width: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(4px);
-  border-radius: 8px;
-  font-weight: 400;
-  font-size: 16px;
-  color: #FFAD49;
-}
-
-.slider-rating .fa-regular {
-  margin-right: 8px;
-  color: #FFAD49;
-}
-
-.slider-wrapper {
-  padding: 12px 0;
-}
-
-.slider-title {
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: 0.02em;
-  color: #EBEEF5;
-  max-width: 100%;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow-x: hidden;
-  margin-bottom: 8px;
-}
-
-.slider-subtitle {
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 24px;
-  color: #767E94;
-}
-
-
-
-
-
-/* END swiper */
-
 
 /* Общие стили для фильмов и сериалов */
 .list-item-title {
@@ -230,7 +151,7 @@ header nav a svg {
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.02em;
-  color: #EBEEF5;
+  color: var(--white);
   max-width: 100%;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -242,7 +163,7 @@ header nav a svg {
   font-weight: 400;
   font-size: 15px;
   line-height: 24px;
-  color: #767E94;
+  color: var(--light-gray);
 }
 
 .list-item-descr {
@@ -264,17 +185,17 @@ header nav a svg {
   display: flex;
   justify-content: center;
   align-items: baseline;
-  background: rgba(0, 0, 0, 0.65);
+  background: var(--black);
   backdrop-filter: blur(4px);
   border-radius: 8px;
   font-weight: 400;
   font-size: 16px;
-  color: #FFAD49;
+  color: var(--orange);
 }
 
 .list-item-rating .fa-regular {
   margin-right: 8px;
-  color: #FFAD49;
+  color: var(--orange);
 }
 
 .no-img {
@@ -300,8 +221,8 @@ header nav a svg {
   content: " ";
   width: 22px;
   height: 22px;
-  border: 2px solid #FFAD49;
-  border-color: #FFAD49 #0000;
+  border: 2px solid var(--orange);
+  border-color: var(--orange) var(--black);
   border-radius: 50%;
   margin: 8px;
   animation: 1.2s linear infinite spinner;
@@ -325,9 +246,9 @@ header nav a svg {
 /* END spinner */
 
 .footer {
-  background: #121829;
+  background: var(--blue);
   padding: 20px 0;
-  border-top: 1px solid #A8AEBF;
+  border-top: 1px solid var(--light-gray);
   text-align: center;
 }
 
