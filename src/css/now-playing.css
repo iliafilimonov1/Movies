@@ -1,14 +1,16 @@
+@import url(/src/css/colors.css);
+
 .swiper-button-next,
 .swiper-button-prev {
-  --swiper-navigation-color: #7b6ef6;
+  --swiper-navigation-color: var(--purple);
 }
 
 .swiper-pagination-bullet-active {
-  --swiper-pagination-color: #7b6ef6;
+  --swiper-pagination-color: var(--purple);
 }
 
 .swiper-scrollbar-drag {
-  --swiper-scrollbar-drag-bg-color: #7B6EF6;
+  --swiper-scrollbar-drag-bg-color: var(--purple);
 }
 
 .now-playing {
@@ -19,7 +21,7 @@
   display: flex;
   flex-direction: column;
   width: 282px;
-  background: rgba(32, 40, 62, 0.8);
+  background: var(--dark-blue);
   border-radius: 12px;
   margin-bottom: 26px;
   padding: 8px;
@@ -40,17 +42,17 @@
   display: flex;
   justify-content: center;
   align-items: baseline;
-  background: rgba(0, 0, 0, 0.65);
+  background: var(--black);
   backdrop-filter: blur(4px);
   border-radius: 8px;
   font-weight: 400;
   font-size: 16px;
-  color: #FFAD49;
+  color: var(--orange);
 }
 
 .slider-rating .fa-regular {
   margin-right: 8px;
-  color: #FFAD49;
+  color: var(--orange);
 }
 
 .slider-wrapper {
@@ -62,7 +64,7 @@
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.02em;
-  color: #EBEEF5;
+  color: var(--white);
   max-width: 100%;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -74,5 +76,5 @@
   font-weight: 400;
   font-size: 15px;
   line-height: 24px;
-  color: #767E94;
+  color: var(--light-gray);
 }
