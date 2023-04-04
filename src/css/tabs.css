@@ -1,6 +1,3 @@
-@import url(/src/css/colors.css);
-
-
 .tabs {
   position: relative;
 }
@@ -10,7 +7,7 @@
   padding: 0;
   margin: 0;
   display: inline-flex;
-  background: var(--black);
+  background: var(--dark-blue);
   backdrop-filter: blur(40px);
   padding: 8px;
   border-radius: 12px;
