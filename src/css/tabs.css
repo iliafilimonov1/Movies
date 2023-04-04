@@ -1,5 +1,9 @@
-@import url(/src/css/colors.css);
-
+/* tabs */
+:root {
+  --color-dark: #4d4d4d;
+  --color-light: #808080;
+  --color-accent: #5d71dd;
+}
 
 .tabs {
   position: relative;
@@ -10,7 +14,7 @@
   padding: 0;
   margin: 0;
   display: inline-flex;
-  background: var(--black);
+  background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(40px);
   padding: 8px;
   border-radius: 12px;
@@ -20,15 +24,15 @@
 .tabs__btn {
   background-color: transparent;
   padding: 10px 17px 10px 17px;
-  color: var(--light-gray);
+  color: #8E95A9;
   cursor: pointer;
   border: 0;
 }
 
 .tabs__btn--active {
-  background: var(--purple);
+  background: #7B6EF6;
   border-radius: 8px;
-  color: var(--white);
+  color: #fff;
   pointer-events: none;
 }
 
@@ -48,9 +52,8 @@
 }
 
 .card {
-  position: relative;
   width: 282px;
-  background: var(--dark-blue);
+  background: rgba(32, 40, 62, 0.8);
   border-radius: 12px;
   margin-bottom: 26px;
   padding: 8px;
@@ -78,11 +81,11 @@
   height: 120px;
   display: inline-block;
   border-radius: 4px;
-  background-color: var(--white);
+  background-color: #ebecf3;
 }
 
 .content__text {
   font-weight: 500;
   font-size: 14px;
-  color: var(--light-gray);
+  color: #a2a6c0;
 }
