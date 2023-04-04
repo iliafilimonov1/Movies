@@ -10,6 +10,7 @@ const global = {
     page: 1,
     totalPages: 1,
     totalResults: 0,
+    maxCountResults: 20,
   },
 };
 
@@ -89,7 +90,7 @@ async function searchAPIData() {
   const data = await response.json();
 
   hideSpinner();
-
+  console.log(data);
   return data;
 }
 
@@ -104,7 +105,7 @@ async function search() {
   global.search.term = urlParams.get("search-term");
   console.log(global.search.term);
 
-  if (global.search.term !== "" && global.search.term !== null) {
+  if (global.search.term !== '' && global.search.term !== null) {
     const { results, page, total_pages, total_results } = await searchAPIData();
 
     global.search.page = page;
@@ -151,6 +152,16 @@ function displaySearchResults(results) {
         </div>
       </a>
     `;
+    console.log(results);
+    document.querySelector('#search-results-heading').innerHTML = `
+        <h2>${
+          global.search.totalPages > 1
+            ? global.search.maxCountResults * (global.search.page - 1) +
+              results.length
+            : results.length
+        } of ${global.search.totalResults} Results for "${
+      global.search.term
+    }"</h2>
 
     document.querySelector("#search-results-heading").innerHTML = `
         <h2>${results.length} of ${global.search.totalResults} Results for ${global.search.term}</h2>
