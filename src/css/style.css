@@ -284,3 +284,30 @@ header nav a svg {
   font-weight: 400;
   padding: 20px;
 }
+
+/* SKELETON */
+.skeleton {
+  position: relative;
+  z-index: -1; /* fix for .list-item-link */
+}
+.skeleton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: #232947;
+  animation: skeleton-loading 1s linear infinite alternate;
+  border-radius: 12px;
+}
+@keyframes skeleton {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+/* SKELETON */
