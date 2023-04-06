@@ -14,7 +14,8 @@ const global = {
   },
 };
 
-// display slideer movies
+
+// display slider movies
 async function nowPlayingMovies() {
   const { results } = await fetchAPIData('movie/now_playing');
 
@@ -47,7 +48,8 @@ async function nowPlayingMovies() {
   initSwiper();
 }
 
-/* swiper */
+
+/* swiper for now playing movies */
 function initSwiper() {
   const swiper = new Swiper('.swiper', {
     slidesPerView: 4,
@@ -61,7 +63,7 @@ function initSwiper() {
     },
   });
 }
-/* END swiper */
+
 
 // Make Request To Search
 async function searchAPIData() {
@@ -109,6 +111,7 @@ async function search() {
   }
 }
 
+
 function displaySearchResults(results) {
   document.querySelector("#search-results").innerHTML = "";
   document.querySelector("#search-results-heading").innerHTML = "";
@@ -148,7 +151,7 @@ function displaySearchResults(results) {
   displayPagination();
 }
 
-// Fetch data from TMDB API
+// Fetch data from API
 async function fetchAPIData(endpoint) {
   const API_KEY = global.api.apiKey;
   const API_URL = global.api.apiUrl;
@@ -156,13 +159,12 @@ async function fetchAPIData(endpoint) {
   showSpinner();
 
   const response = await fetch(`${API_URL}${endpoint}?api_key=${API_KEY}& language=en-US`);
-
   const data = await response.json();
-
   hideSpinner();
 
   return data;
 }
+
 
 // display 20 most popular movies
 async function displayPopularMovies() {
@@ -197,6 +199,7 @@ async function displayPopularMovies() {
   });
 }
 
+
 // display most popular TV Shows
 async function displayPopularShows() {
   const { results } = await fetchAPIData('/tv/popular');
@@ -225,6 +228,7 @@ async function displayPopularShows() {
     document.querySelector('.popular-tv').appendChild(div);
   });
 }
+
 
 async function displayMovieDetails() {
   const movieId = window.location.search.split("=")[1];
@@ -306,7 +310,7 @@ function initMovieDetailsSlider() {
   });
 }
 
-// display tv details
+
 async function displayShowsDetails() {
   const tvId = window.location.search.split("=")[1];
 
@@ -378,12 +382,15 @@ async function displayShowsDetails() {
   initMovieDetailsSlider();
 }
 
+
 function displayPagination() {
   const div = document.createElement('div');
   div.classList.add('pagination');
   div.innerHTML = `
-      <button class="btn btn-primary" id="prev"> Prev</button>
-      <button class="btn btn-primary" id="next">Next</button>
+      <div>
+        <button class="btn btn-outline" id="prev">Prev</button>
+        <button class="btn btn-outline" id="next">Next</button>
+      </div>
       <div class="page-counter">Page ${global.search.page} of ${global.search.totalPages}</div>
     `;
 
@@ -405,6 +412,7 @@ function displayPagination() {
 
     const { results } = await searchAPIData();
     displaySearchResults(results);
+    smoothscroll();
   });
 
   // step to prev page
@@ -413,8 +421,20 @@ function displayPagination() {
 
     const { results } = await searchAPIData();
     displaySearchResults(results);
+    smoothscroll();
   });
 }
+
+
+// scroll to title in search page
+function smoothscroll() {
+  let currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+  if (currentScroll > 0) {
+    window.requestAnimationFrame(smoothscroll);
+    window.scrollTo(0, currentScroll - (currentScroll / 5));
+  }
+}
+
 
 /* links */
 const links = document.querySelectorAll('.nav-link');
@@ -426,7 +446,8 @@ links.forEach(link => {
   });
 });
 
-/* tabs-content */
+
+/* tabs */
 document.addEventListener('DOMContentLoaded', () => {
   const tabs = document.querySelector('.tabs');
   const tabsBtn = document.querySelectorAll('.tabs__btn');
@@ -453,6 +474,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 });
 
+
 /* spinner */
 function showSpinner() {
   document.querySelector('.spinner').classList.add('show');
@@ -462,6 +484,8 @@ function hideSpinner() {
   document.querySelector('.spinner').classList.remove('show');
 }
 
+
+/* init */
 function init() {
   switch (global.currentPage) {
     case '/':
@@ -488,4 +512,4 @@ function init() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', init); // инициализация слайдера при загрузке страницы
+document.addEventListener('DOMContentLoaded', init);

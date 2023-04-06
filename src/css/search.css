@@ -1,5 +1,3 @@
-@import url(/src/css/colors.css);
-
 .search {
   padding: 24px 0;
 }
@@ -91,7 +89,44 @@ input[type="search"]::-webkit-search-results-decoration {
   -webkit-appearance: none;
 }
 
-#search-results-heading{
+#search-results-heading {
   display: block;
   padding: 0 0 20px 0;
+}
+
+/* Стилизация кнопок навигации поиска */
+.pagination {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 350px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.page-counter {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.btn {
+  background: #292929;
+  padding: 10px 14px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  text-transform: uppercase;
+  color: #BB86FC;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 1.25px;
+}
+
+.btn-outline {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.btn:disabled {
+  color: rgba(255, 255, 255, 0.38);
+  cursor: not-allowed;
 }
